@@ -53,7 +53,6 @@ const Header: React.FC = () => {
           to="/"
           disableRipple
           sx={{
-            flexGrow: 1,
             display: "flex",
             alignItems: "center",
             justifyContent: "flex-start",
