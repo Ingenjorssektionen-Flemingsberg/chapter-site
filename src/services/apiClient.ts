@@ -19,7 +19,7 @@ function addInterceptors(apiClient: AxiosInstance) {
     (error) => {
       console.error("Request error:", error);
       return Promise.reject(error);
-    }
+    },
   );
 
   // Add an interceptor for handling responses and errors
@@ -30,7 +30,7 @@ function addInterceptors(apiClient: AxiosInstance) {
     (error) => {
       console.error("API Error:", error);
       return Promise.reject(error);
-    }
+    },
   );
 }
 

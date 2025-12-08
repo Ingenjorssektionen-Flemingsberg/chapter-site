@@ -66,7 +66,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       theme: currentTheme,
       switchTheme: switchThemeFunc,
     }),
-    [isDark, currentTheme, switchThemeFunc]
+    [isDark, currentTheme, switchThemeFunc],
   );
 
   return (

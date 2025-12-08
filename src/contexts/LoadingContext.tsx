@@ -51,7 +51,7 @@ export const LoadingProvider = ({
       loading: loading,
       setLoading: setLoading,
     }),
-    [loading, setLoading]
+    [loading, setLoading],
   );
 
   return (

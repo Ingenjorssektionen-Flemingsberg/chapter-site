@@ -20,7 +20,7 @@ interface CalendarContextType {
 }
 
 const CalendarContext = createContext<CalendarContextType | undefined>(
-  undefined
+  undefined,
 );
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -47,11 +47,11 @@ export const CalendarProvider = ({
   // derive from/to from currentDate
   const from = useMemo(
     () => new Date(year, monthIndex, 1).toISOString(),
-    [year, monthIndex]
+    [year, monthIndex],
   );
   const to = useMemo(
     () => new Date(year, monthIndex + 1, 0, 23, 59, 59).toISOString(),
-    [year, monthIndex]
+    [year, monthIndex],
   );
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -92,7 +92,7 @@ export const CalendarProvider = ({
       events: events,
       nextOrPrevMonth: nextOrPrevMonthFunc,
     }),
-    [currentDate, from, to, events, nextOrPrevMonthFunc]
+    [currentDate, from, to, events, nextOrPrevMonthFunc],
   );
 
   return (
