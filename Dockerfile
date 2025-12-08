@@ -39,9 +39,6 @@ COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=build --chmod=777 --link /app/entrypoint.sh /entrypoint.sh
 
-# can be comma separated to add more
-ENV SERVER_PLATFORM="linux/amd64"
-
 EXPOSE 3000
 
 ENTRYPOINT ["/entrypoint.sh"]
