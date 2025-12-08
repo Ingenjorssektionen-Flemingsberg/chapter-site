@@ -1,34 +1,44 @@
-FROM oven/bun:1-debian AS build
+# Build with Bun
+FROM --platform=$BUILDPLATFORM docker.io/oven/bun:latest AS build
+
+ARG RELEASE_BRANCH
+ARG RELEASE_DATE
+ARG RELEASE_COMMIT
+
+ENV NODE_ENV="production"
 
 WORKDIR /app
 
-COPY package.json bun.lock ./
+COPY package*.json bun.lock ./
 
-# Install dependencies
 RUN bun install
 
-# Environment variables
-ENV VITE_GOOGLE_CALENDAR_API_URL="{{__GOOGLE_CALENDAR_API_URL__}}"
-ENV VITE_GOOGLE_CALENDAR_API_KEY="{{__GOOGLE_CALENDAR_API_KEY__}}"
-ENV VITE_GOOGLE_CALENDAR_ID="{{__GOOGLE_CALENDAR_ID__}}"
+COPY .env.development .
+COPY --chmod=775 scripts/ ./
 
-# Copy the rest of your application files to the container
+RUN ./docker-envs.ts .env.production && \
+    ./nginx-entrypoint.ts && \
+    rm .env.development
+
+ENV VITE_RELEASE_BRANCH=${RELEASE_BRANCH}
+ENV VITE_RELEASE_DATE=${RELEASE_DATE}
+ENV VITE_RELEASE_COMMIT=${RELEASE_COMMIT}
+
+COPY eslint.config.js index.html tsconfig*.json vite.config.ts ./
+
 COPY . .
-
-RUN rm -f .env.development
 
 RUN bun run build
 
-# Step 7: Set up a new stage for serving the app (use a lightweight web server)
+# Serve with NGINX
 FROM nginx:alpine
-
-# Copy the build output from the previous stage to the Nginx container
 COPY --from=build /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx/app.conf /etc/nginx/conf.d
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
-COPY ./docker-entrypoint.sh .
-RUN chmod +x /docker-entrypoint.sh
+COPY --from=build --chmod=777 --link /app/entrypoint.sh /entrypoint.sh
 
 EXPOSE 3000
 
-ENTRYPOINT [ "/docker-entrypoint.sh" ]
+ENTRYPOINT ["/entrypoint.sh"]

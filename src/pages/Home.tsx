@@ -1,5 +1,5 @@
 import { Container } from "@mui/material";
-import banner from "../assets/banner.jpg"; // adjust path if needed
+import banner from "../assets/banner.webp"; // adjust path if needed
 import HeroBanner from "../components/HeroBanner";
 
 export default function Home() {
