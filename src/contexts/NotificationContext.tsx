@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useMemo } from "react";
+import React, { createContext, useCallback, useContext, useMemo } from "react";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import { IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
@@ -14,6 +14,7 @@ const NotificationContext = createContext<NotificationContextType | undefined>(
   undefined
 );
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useNotification = (): NotificationContextType => {
   const context = useContext(NotificationContext);
   if (!context) {
@@ -29,21 +30,24 @@ const NotificationContextProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
-  const showNotification = (
-    message: string,
-    severity: "success" | "info" | "warning" | "error" = "info"
-  ) => {
-    enqueueSnackbar(message, {
-      variant: severity,
-      autoHideDuration: 3000,
-      anchorOrigin: { vertical: "bottom", horizontal: "center" },
-      action: (key) => (
-        <IconButton color="inherit" onClick={() => closeSnackbar(key)}>
-          <CloseIcon fontSize="small" />
-        </IconButton>
-      ),
-    });
-  };
+  const showNotification = useCallback(
+    (
+      message: string,
+      severity: "success" | "info" | "warning" | "error" = "info"
+    ) => {
+      enqueueSnackbar(message, {
+        variant: severity,
+        autoHideDuration: 3000,
+        anchorOrigin: { vertical: "bottom", horizontal: "center" },
+        action: (key) => (
+          <IconButton color="inherit" onClick={() => closeSnackbar(key)}>
+            <CloseIcon fontSize="small" />
+          </IconButton>
+        ),
+      });
+    },
+    [enqueueSnackbar, closeSnackbar]
+  );
 
   const value = useMemo<NotificationContextType>(
     () => ({

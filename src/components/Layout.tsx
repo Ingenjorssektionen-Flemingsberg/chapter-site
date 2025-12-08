@@ -1,17 +1,10 @@
 import React from "react";
-import {
-  AppBar,
-  Toolbar,
-  Button,
-  Box,
-  Typography,
-  IconButton,
-} from "@mui/material";
+import { Toolbar, Button, Box, Typography, IconButton } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import ContrastIcon from "@mui/icons-material/Contrast";
-import { Link as RouterLink, Outlet, useNavigate } from "react-router-dom";
+import { Link as RouterLink, Outlet } from "react-router-dom";
 import { useTheme } from "../contexts/ThemeContext";
 import IsFLogo from "../assets/IsF.png";
 import { navItems } from "../config/navConfig";
@@ -19,18 +12,6 @@ import NavItemButton from "./buttons/NavItemButton";
 
 const Header: React.FC = () => {
   const { isDark, switchTheme, theme } = useTheme();
-  const navigate = useNavigate();
-
-  const pages = [
-    "HEM",
-    "NYHETER",
-    "EVENT",
-    "SEKTIONEN",
-    "ORGAN OCH NÄMNDER",
-    "NYANTAGEN",
-    "DISCORD",
-    "KONTAKT",
-  ];
 
   return (
     <Box

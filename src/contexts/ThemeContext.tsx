@@ -18,6 +18,7 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (!context) {
@@ -32,13 +33,17 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
   // On mount: read user preference from localStorage (if any)
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (globalThis.window === undefined) return;
 
-    const stored = window.localStorage.getItem("isDark");
-    if (stored !== null) {
-      const dark = stored === "true";
+    const setDark = async (dark: boolean) => {
       setIsDark(dark);
       setCurrentTheme(dark ? darkTheme : lightTheme);
+    };
+
+    const stored = globalThis.window.localStorage.getItem("isDark");
+    if (stored !== null) {
+      const dark = stored === "true";
+      setDark(dark);
     }
   }, []);
 
@@ -47,8 +52,8 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       const next = !prev;
       setCurrentTheme(next ? darkTheme : lightTheme);
 
-      if (typeof window !== "undefined") {
-        window.localStorage.setItem("isDark", String(next));
+      if (globalThis.window !== undefined) {
+        globalThis.window.localStorage.setItem("isDark", String(next));
       }
 
       return next;

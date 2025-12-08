@@ -16,7 +16,7 @@ export default function HeroBanner({
   subtitle,
   height = "70vh",
   overlayLight = 0.35,
-  overlayDark = 0.7,
+  overlayDark = 0.6,
 }: HeroBannerProps) {
   const { isDark } = useTheme();
 
