@@ -64,7 +64,7 @@ export const navItems: NavItem[] = [
       { label: "Info om KTH Flemingsberg", path: "/info-om-kth-flemingsberg" },
       { label: "Vad gör sektionen", path: "/vad-gor-sektionen" },
       {
-        label: "så blir du en del av sektionen",
+        label: "Så blir du en del av sektionen",
         path: "/bli-del-av-sektionen",
       },
     ],

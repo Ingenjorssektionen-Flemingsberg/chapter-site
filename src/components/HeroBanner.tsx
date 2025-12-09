@@ -17,7 +17,7 @@ export default function HeroBanner({
   height = "100vh",
   overlayLight = 0.35,
   overlayDark = 0.6,
-}: HeroBannerProps) {
+}: Readonly<HeroBannerProps>) {
   const { isDark } = useTheme();
 
   return (

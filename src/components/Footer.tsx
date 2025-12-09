@@ -2,8 +2,11 @@ import { Box, Typography, IconButton, Stack, Link } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { useTheme } from "../hooks/useTheme";
 
 export default function Footer() {
+  const { theme } = useTheme();
+
   return (
     <Box
       component="footer"
@@ -36,32 +39,32 @@ export default function Footer() {
         spacing={{ xs: 1.5, md: 4 }}
         alignItems="center"
         justifyContent="center"
-        sx={{ mb: 3 }}
+        sx={{ mb: 3, color: theme.palette.secondary.main }}
       >
         <Typography>
           Har du frågor?{" "}
           <Link
             href="mailto:styrelsen@isflemingsberg.se"
             underline="hover"
-            sx={{ color: "primary.contrastText" }}
+            sx={{ color: theme.palette.secondary.main }}
           >
             styrelsen@isflemingsberg.se
           </Link>
         </Typography>
 
         <Typography>
-          Klagomål:{" "}
+          Lämna klagomål till sektionen:{" "}
           <Link
-            href="https://isflemingsberg.se/jml"
+            href="/jml"
             underline="hover"
-            sx={{ color: "primary.contrastText", mr: 1 }}
+            sx={{ color: theme.palette.secondary.main, mr: 1 }}
           >
             JML
           </Link>
           <Link
-            href="https://isflemingsberg.se/studienamnden"
+            href="/studienamnden"
             underline="hover"
-            sx={{ color: "primary.contrastText" }}
+            sx={{ color: theme.palette.secondary.main }}
           >
             Studienämnden
           </Link>

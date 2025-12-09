@@ -16,6 +16,7 @@ const OKRAROD = "#90302C";
 
 // DARK THEME – warm, moody, ochre-red accent
 const darkTheme = createTheme({
+  typography: {fontFamily: "'Times new roman', sans-serif"},
   palette: {
     mode: "dark",
     primary: { main: OKRAROD },
@@ -90,6 +91,7 @@ const darkTheme = createTheme({
 
 // LIGHT THEME – soft, creamy background with okraröd accent
 const lightTheme = createTheme({
+  typography: {fontFamily: "'Times new roman', sans-serif"},
   palette: {
     mode: "light",
     primary: { main: OKRAROD },

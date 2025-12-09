@@ -56,7 +56,7 @@ export default function Calendar() {
   const monthName = currentDate.toLocaleString("default", { month: "long" });
   const monthGrid = useMemo(
     () => getPaddedMonthGrid(currentDate),
-    [currentDate],
+    [currentDate]
   );
 
   // Group events by YYYY-MM-DD
@@ -131,7 +131,8 @@ export default function Calendar() {
       <Box
         sx={{
           display: "flex",
-          width: 900,
+          width: "100%",
+          maxWidth: 950,
           justifyContent: "space-between",
           mt: 5,
           mb: 2,
