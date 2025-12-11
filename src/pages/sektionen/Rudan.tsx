@@ -1,8 +1,8 @@
 import { Box, Container, Divider, Typography, Link } from "@mui/material";
-import NavSidebar from "../components/layout/NavSidebar";
-import { navItems } from "../config/navConfig";
-import HeroBanner from "../components/HeroBanner";
-import rudan from "../assets/rudan.webp";
+import NavSidebar from "../../components/layout/NavSidebar";
+import { navItems } from "../../config/navConfig";
+import HeroBanner from "../../components/HeroBanner";
+import rudan from "../../assets/sektionen/rudan.webp";
 import { Link as RouterLink } from "react-router-dom";
 
 export default function Rudan() {
@@ -24,6 +24,7 @@ export default function Rudan() {
       <Box
         sx={{
           maxWidth: { xs: "90vw", md: "60vw" },
+          width: "100%",
           display: "flex",
           flexDirection: "row",
           gap: 4,

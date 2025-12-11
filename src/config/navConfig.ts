@@ -39,7 +39,7 @@ export const navItems: NavItem[] = [
   },
   {
     label: "Organ och Nämnder",
-    path: "/organ-och-nämnder",
+    path: "/qm",
     subLinks: [
       { label: "Qlubbmästeriet", path: "/qm" },
       { label: "Företagsgruppen", path: "/foretagsgruppen" },
@@ -54,7 +54,7 @@ export const navItems: NavItem[] = [
   },
   {
     label: "Nyantagen",
-    path: "/nyantagen",
+    path: "/mottagningen",
     subLinks: [
       { label: "Mottagningen", path: "/mottagningen" },
       {

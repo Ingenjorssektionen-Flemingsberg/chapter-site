@@ -1,9 +1,9 @@
 import { Box, Container, Typography } from "@mui/material";
-import SquareButton from "../components/buttons/SquareButton";
-import NavSidebar from "../components/layout/NavSidebar";
-import { navItems } from "../config/navConfig";
-import HeroBanner from "../components/HeroBanner";
-import ovve from "../assets/ovve.webp";
+import SquareButton from "../../components/buttons/SquareButton";
+import NavSidebar from "../../components/layout/NavSidebar";
+import { navItems } from "../../config/navConfig";
+import HeroBanner from "../../components/HeroBanner";
+import ovve from "../../assets/sektionen/ovve.webp";
 
 export default function Ovve() {
   const item = navItems.find((x) => x.label === "Sektionen");
@@ -29,6 +29,7 @@ export default function Ovve() {
       <Box
         sx={{
           maxWidth: { xs: "90vw", md: "60vw" },
+          width: "100%",
           display: "flex",
           flexDirection: "row",
           gap: 4,

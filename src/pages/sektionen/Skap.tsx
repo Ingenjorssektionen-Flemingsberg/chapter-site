@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from "@mui/material";
-import SquareButton from "../components/buttons/SquareButton";
-import NavSidebar from "../components/layout/NavSidebar";
-import { navItems } from "../config/navConfig";
+import SquareButton from "../../components/buttons/SquareButton";
+import NavSidebar from "../../components/layout/NavSidebar";
+import { navItems } from "../../config/navConfig";
 
 export default function Skap() {
   const item = navItems.find((x) => x.label === "Sektionen");
@@ -11,7 +11,8 @@ export default function Skap() {
       maxWidth="lg"
       sx={{
         minHeight: "60vh",
-        minWidth: "60vw",
+        maxWidth: { xs: "90vw", md: "60vw" },
+        width: "100%",
         display: "flex",
         flexDirection: "row",
         alignItems: "flex-start",
