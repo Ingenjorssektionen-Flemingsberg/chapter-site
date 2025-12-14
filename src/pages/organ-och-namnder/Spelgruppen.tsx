@@ -1,51 +1,26 @@
-import { Box, Container, Divider, Typography } from "@mui/material";
-import HeroBanner from "../../components/HeroBanner";
-import NavSidebar from "../../components/layout/NavSidebar";
-import { navItems } from "../../config/navConfig";
+import { Divider, Typography } from "@mui/material";
+import InfoPageLayout from "../../components/layout/InfoPageLayout";
+import spruppen from "../../assets/organ-och-namnder/spruppen.webp";
+import GroupRoles from "../../components/roles/GroupRoles";
 
 export default function Spelgruppen() {
-  const item = navItems.find((x) => x.label === "Organ och Nämnder");
-
   return (
-    <Container
-      disableGutters
-      sx={{
-        minHeight: "100vh",
-        minWidth: "100vw",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        top: 0,
-      }}
+    <InfoPageLayout
+      navLabel="Organ och Nämnder"
+      heroImage={spruppen}
+      heroTitle="spruppen"
+      heroHeight={{ xs: "40vh", md: "60vh" }}
     >
-      <HeroBanner
-        image={""}
-        title="spruppen"
-        height={{ xs: "40vh", md: "60vh" }}
-      />
+      <Typography variant="h4" mb={3}>
+        Spruppen
+      </Typography>
 
-      <Box
-        sx={{
-          maxWidth: { xs: "90vw", md: "60vw" },
-          width: "100%",
-          display: "flex",
-          flexDirection: "row",
-          gap: 4,
-          my: 8,
-          alignItems: "flex-start",
-          justifyContent: "left",
-        }}
-      >
-        {item && <NavSidebar item={item} />}
+      <Divider sx={{ my: 3 }} />
 
-        <Divider orientation="vertical" flexItem />
-
-        <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <Typography variant="h4" mb={3}>
-            Spruppen
-          </Typography>
-        </Box>
-      </Box>
-    </Container>
+      <Typography variant="h4" mb={3}>
+        Ansvarig
+      </Typography>
+      <GroupRoles find="Spruppen" showGroupName={false} showContact={true} />
+    </InfoPageLayout>
   );
 }
