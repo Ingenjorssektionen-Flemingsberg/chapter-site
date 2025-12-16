@@ -72,7 +72,7 @@ export default function MessageForm({
           helperText="(krävs)"
         />
 
-        <SquareButton type="submit">Skicka</SquareButton>
+        <SquareButton fullWidth type="submit">Skicka</SquareButton>
       </Stack>
     </Box>
   );

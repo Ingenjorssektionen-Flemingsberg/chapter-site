@@ -27,7 +27,6 @@ export default function SquareButton({
       {...(isLink && { to })}
       sx={{
         width,
-        maxWidth: "80vw",
         textAlign: "center",
         whiteSpace: "normal",
         lineHeight: 1.2,
