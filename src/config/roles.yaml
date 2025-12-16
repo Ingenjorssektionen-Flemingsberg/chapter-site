@@ -78,6 +78,7 @@ chapter:
         members: [Linus Hasselkvist]
 
   - name: Valberedningen
+    contact: valberedning@isflemingsberg.se
     roles:
       - name: Valberedningens Ordförande
         members: [Johan Gripenhall]
@@ -107,11 +108,13 @@ chapter:
   - name: Slurpenredaktionen
     roles:
       - name: Chefredaktör
+        contact: tuva@isflemingsberg.se
         members: [Tuva Svanström]
 
   - name: Utbytesnämnden
     roles:
       - name: Utbytesnämndens Ordförande
+        contact: adam@isflemingsberg.se
         members: [Adam Younes]
 
   - name: Lokalnämnden

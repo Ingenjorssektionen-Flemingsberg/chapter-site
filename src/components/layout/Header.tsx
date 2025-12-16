@@ -92,6 +92,7 @@ function HeaderComponent() {
               transition: "transform 0.4s",
               padding: 0,
               background: "none",
+              color: "#FFF",
             }}
           >
             <ContrastOutlined />

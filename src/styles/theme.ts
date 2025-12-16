@@ -89,12 +89,20 @@ const darkTheme = createTheme({
     MuiLink: {
       styleOverrides: {
         root: {
-          color: "inherit",
+          color: "#1E5F87",
           textDecorationColor: "inherit",
         },
       },
       defaultProps: {
         underline: "always",
+      },
+    },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          fontSize: "0.75rem",
+          opacity: 0.75,
+        },
       },
     },
   },
@@ -176,12 +184,20 @@ const lightTheme = createTheme({
     MuiLink: {
       styleOverrides: {
         root: {
-          color: "inherit",
+          color: "#1E5F87",
           textDecorationColor: "inherit",
         },
       },
       defaultProps: {
         underline: "always",
+      },
+    },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          fontSize: "0.75rem",
+          opacity: 0.75,
+        },
       },
     },
   },

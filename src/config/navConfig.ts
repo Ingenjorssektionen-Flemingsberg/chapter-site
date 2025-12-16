@@ -41,14 +41,20 @@ export const navItems: NavItem[] = [
     label: "Organ och Nämnder",
     path: "/qm",
     subLinks: [
+      // Organ
       { label: "Qlubbmästeriet", path: "/qm" },
-      { label: "Företagsgruppen", path: "/foretagsgruppen" },
       { label: "Mottagningsgruppen", path: "/mottagningsgruppen" },
-      { label: "Idrottsgruppen", path: "/idrottsgruppen" },
-      { label: "Spelgruppen", path: "/spelgruppen" },
+      { label: "Företagsgruppen", path: "/foretagsgruppen" },
+
+      // Nämnder
       { label: "Studienämnden", path: "/studienamnden" },
       { label: "JML-nämnden", path: "/jml-namnden" },
+      { label: "Valberedningen", path: "/valberedningen" },
       { label: "Lokalnämnden", path: "/lokalnamnden" },
+      { label: "Utbytesnämnden", path: "/utbytesnamnden" },
+      { label: "Idrottsgruppen", path: "/idrottsgruppen" },
+      { label: "Spelgruppen", path: "/spelgruppen" },
+      { label: "Infogruppen", path: "/infogruppen" },
       { label: "Slurpen", path: "/slurpen" },
     ],
   },

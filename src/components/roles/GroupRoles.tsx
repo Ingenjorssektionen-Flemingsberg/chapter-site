@@ -44,6 +44,7 @@ export default function GroupRoles({
             <RoleItem
               key={`${foundGroup?.name ?? "group"}-role-${role.name ?? idx}`}
               role={role}
+              showContact={showContact}
             />
           ))}
         </Stack>

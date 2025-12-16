@@ -20,6 +20,9 @@ import Studienamnden from "./pages/organ-och-namnder/Studienamnden";
 import Jml from "./pages/organ-och-namnder/JML";
 import Lokalnamnden from "./pages/organ-och-namnder/Lokalnamnden";
 import Slurpen from "./pages/organ-och-namnder/Slurpen";
+import Valberedningen from "./pages/organ-och-namnder/Valberedningen";
+import Utbytesnamnden from "./pages/organ-och-namnder/Utbytesnamnden";
+import Infogruppen from "./pages/organ-och-namnder/Infogruppen";
 
 export const routes: RouteObject[] = [
   {
@@ -45,7 +48,10 @@ export const routes: RouteObject[] = [
       { path: "/spelgruppen", element: <Spelgruppen /> },
       { path: "/studienamnden", element: <Studienamnden /> },
       { path: "/jml-namnden", element: <Jml /> },
+      { path: "/valberedningen", element: <Valberedningen /> },
+      { path: "/utbytesnamnden", element: <Utbytesnamnden /> },
       { path: "/lokalnamnden", element: <Lokalnamnden /> },
+      { path: "/infogruppen", element: <Infogruppen /> },
       { path: "/slurpen", element: <Slurpen /> },
       // Nyantagen
 

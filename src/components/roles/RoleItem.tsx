@@ -55,10 +55,10 @@ export default function RoleItem({
       )}
 
       {showContact && foundRole?.contact && (
-        <Stack spacing={0} sx={{ mt: 2 }}>
-          <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+        <Stack spacing={0}>
+          {/* <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
             Kontakt
-          </Typography>
+          </Typography> */}
           <Link component={RouterLink} to={`mailto:${foundRole?.contact}`}>
             {foundRole?.contact}
           </Link>

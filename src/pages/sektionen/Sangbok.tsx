@@ -24,11 +24,9 @@ export default function Sangbok() {
         Vill du köpa ditt eget exemplar? Skicka ett mejl eller kom förbi Kexet{" "}
         {"<3"}
       </Typography>
-      <SquareButton
-        text="styrelsen@isflemingsberg.se"
-        to="mailto:styrelsen@isflemingsberg.se"
-        fontSize="1.2em"
-      />
+      <SquareButton to="mailto:styrelsen@isflemingsberg.se" fontSize="1.2em">
+        styrelsen@isflemingsberg.se
+      </SquareButton>
     </InfoPageLayout>
   );
 }

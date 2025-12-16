@@ -51,7 +51,7 @@ const NavSidebar: React.FC<NavSidebarProps> = ({ item }) => {
                 primary={sub.label}
                 primaryTypographyProps={{
                   fontFamily: "'Open Sans', sans-serif",
-                  fontSize: "0.95em",
+                  fontSize: "0.9em",
                   fontWeight: 400,
                   letterSpacing: "0.1em",
                   textTransform: "uppercase",

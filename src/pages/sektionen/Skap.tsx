@@ -22,20 +22,16 @@ export default function Skap() {
         <br /> En deposition på 500kr tillkommer. Den återfås vid återlämning av
         nyckel.
       </Typography>
-      <SquareButton
-        text="frågor?"
-        to="mailto:skap@isflemingsberg.se"
-        fontSize="1.2em"
-      />
+      <SquareButton to="mailto:skap@isflemingsberg.se" fontSize="1.2em">
+        frågor?
+      </SquareButton>
 
       <Typography variant="body1" mb={3} mt={7}>
         Om du inte är kårmedlem kan du betala kårmedlemskapet hos THS.
       </Typography>
-      <SquareButton
-        text="bli kårmedlem"
-        to="https://ths.kth.se/"
-        fontSize="1.2em"
-      />
+      <SquareButton to="https://ths.kth.se/" fontSize="1.2em">
+        bli kårmedlem
+      </SquareButton>
     </InfoPageLayout>
   );
 }

@@ -15,10 +15,19 @@ export default function Mottagningsgruppen() {
       <Typography variant="h4" mb={3}>
         Mottagningsgruppen
       </Typography>
+      <Typography variant="body1">
+        Mottagningsgruppen, eller <strong>MoGen</strong>, ansvarar för
+        mottagandet av de ny studenterna i början av varje vår- och hösttermin.
+        Under de 3 första veckorna av höstterminen ger MoGen en introduktion
+        till studentlivet på KTH där olika aktiviteter anordnas. Mottagningen är
+        den perfekta tiden för att lära känna alla sina klasskamrater som man
+        kommer att spendera dem kommande åren med men även en chans att få prata
+        med äldre studenter (Faddrar) om hur det är att plugga på KTH.
+      </Typography>
 
       <Divider sx={{ my: 3 }} />
 
-      <Typography variant="h4" mb={3}>
+      <Typography variant="h5" mb={3}>
         Ansvarig
       </Typography>
       <GroupRoles

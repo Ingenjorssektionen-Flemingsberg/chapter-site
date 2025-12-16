@@ -27,18 +27,18 @@ export default function Ovve() {
         storlekar så att alla ska kunna hitta en som sitter perfekt.
         <br />
       </Typography>
-      <SquareButton
-        text="köp ovve"
-        to="mailto:ovve@isflemingsberg.se"
-        fontSize="1.2em"
-      />
+      <SquareButton to="mailto:ovve@isflemingsberg.se" fontSize="1.2em">
+        köp ovve
+      </SquareButton>
       <Typography variant="body1" mb={3} mt={7}>
         Här hittar du också vår ovveguide där du kan läsa om traditionerna,
         reglerna och de små hemligheter som ovvekulturen involverar. Ta väl hand
         om den, den kommer vara med dig i vått och torrt.
       </Typography>
       {/* TODO: Fixa pdf, antingen via drive eller om man ska kunna lägga upp på webbsidan */}
-      <SquareButton text="ovveguide (pdf)" to="" fontSize="1.2em" />
+      <SquareButton to="" fontSize="1.2em">
+        ovveguide (PDF)
+      </SquareButton>
     </InfoPageLayout>
   );
 }

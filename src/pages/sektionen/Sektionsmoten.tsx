@@ -30,11 +30,9 @@ export default function Sektionsmoten() {
           gap: 2,
         }}
       >
-        <SquareButton
-          text="möteshandlingar och protokoll"
-          to="/styrdokument"
-          fontSize="1.2em"
-        />
+        <SquareButton to="/styrdokument" fontSize="1.2em">
+          möteshandlingar och protokoll
+        </SquareButton>
       </Box>
     </InfoPageLayout>
   );
