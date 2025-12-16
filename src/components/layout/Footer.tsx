@@ -28,6 +28,7 @@ export default function Footer() {
           textTransform: "uppercase",
           opacity: 0.9,
           mb: 3,
+          color: "white",
         }}
       >
         Ingenjörssektionen Flemingsberg · Hälsovägen 11c · Huddinge · Sweden
@@ -78,7 +79,8 @@ export default function Footer() {
           target="_blank"
           rel="noopener"
           aria-label="Facebook"
-          sx={{ color: "primary.contrastText" }}
+          disableRipple
+          sx={{ color: "white" }}
         >
           <FacebookIcon />
         </IconButton>
@@ -88,7 +90,8 @@ export default function Footer() {
           target="_blank"
           rel="noopener"
           aria-label="Instagram"
-          sx={{ color: "primary.contrastText" }}
+          disableRipple
+          sx={{ color: "white" }}
         >
           <InstagramIcon />
         </IconButton>
@@ -98,7 +101,8 @@ export default function Footer() {
           target="_blank"
           rel="noopener"
           aria-label="LinkedIn"
-          sx={{ color: "primary.contrastText" }}
+          disableRipple
+          sx={{ color: "white" }}
         >
           <LinkedInIcon />
         </IconButton>

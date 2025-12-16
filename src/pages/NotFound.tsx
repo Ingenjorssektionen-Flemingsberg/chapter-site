@@ -25,14 +25,14 @@ export default function NotFound() {
       <Typography variant="h4" sx={{ mt: 2, mb: 4 }}>
         Oops! Page Not Found
       </Typography>
-      <Typography sx={{ mb: 4, color: "text.secondary" }}>
-        The page you’re looking for doesn’t exist or has been moved.
+      <Typography sx={{ mb: 4 }}>
+        The page you're looking for doesn't exist or has been moved.
       </Typography>
       <Box>
         <Button
           variant="contained"
-          color="primary"
           onClick={() => navigate("/")}
+          sx={{ color: "white" }}
         >
           Go Home
         </Button>

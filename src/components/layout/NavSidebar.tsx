@@ -22,10 +22,17 @@ const NavSidebar: React.FC<NavSidebarProps> = ({ item }) => {
         display: { xs: "none", md: "flex" },
         flexDirection: "column",
         alignItems: "left",
-        minWidth: "13vw",
+        maxWidth: "15vw",
       }}
     >
-      <Typography variant="h4">{item.label}</Typography>
+      <Typography
+        variant="h5"
+        textTransform="uppercase"
+        fontFamily="'Open Sans', sans-serif"
+        letterSpacing="0.05em"
+      >
+        {item.label}
+      </Typography>
       {hasSubLinks && (
         <List dense sx={{ py: 1 }}>
           {item.subLinks!.map((sub) => (
@@ -45,7 +52,7 @@ const NavSidebar: React.FC<NavSidebarProps> = ({ item }) => {
                 primaryTypographyProps={{
                   fontFamily: "'Open Sans', sans-serif",
                   fontSize: "0.9em",
-                  fontWeight: 500,
+                  fontWeight: 400,
                   letterSpacing: "0.1em",
                   textTransform: "uppercase",
                   color: "#666",

@@ -5,7 +5,7 @@ interface HeroBannerProps {
   image: string;
   title: string | React.ReactNode;
   subtitle?: string;
-  height?: string | number | { xs: string; md: string };
+  height?: string | number | { xs: string; md: string; lg?: string };
   overlayLight?: number;
   overlayDark?: number;
   position?: { xs: string; md: string };

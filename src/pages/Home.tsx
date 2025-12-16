@@ -1,8 +1,22 @@
-import { Container, Box, Typography, Stack } from "@mui/material";
+import {
+  Container,
+  Box,
+  Typography,
+  Stack,
+  Link,
+  IconButton,
+} from "@mui/material";
 import banner from "../assets/banner.webp";
 import HeroBanner from "../components/HeroBanner";
+import { Link as RouterLink } from "react-router-dom";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { useTheme } from "../hooks/useTheme";
 
 export default function Home() {
+  const { theme } = useTheme();
+
   return (
     <>
       <Container
@@ -49,27 +63,91 @@ export default function Home() {
               textAlign="start"
               ml={{ xs: "1rem" }}
               mr={{ xs: "1rem" }}
+              mb={2}
             >
-              Var finns vi?
+              Vilka är vi?
             </Typography>
             <Typography
               sx={{ mb: 4, maxWidth: 800, mx: "auto", textAlign: "start" }}
               ml={{ xs: "1rem" }}
               mr={{ xs: "1rem" }}
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Obcaecati, architecto tempora maxime deserunt dolores cumque? Quod
-              soluta in quis ab voluptatibus, voluptatum ducimus facilis quam
-              cumque, nam, repellendus ullam ex. Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Ducimus, quisquam laudantium aliquid
-              quibusdam iure, quae, at ipsam maxime dolorem sit itaque eligendi
-              animi quas nihil aut culpa reiciendis molestiae sequi.
+              Ingenjörssektionen Flemingsberg (IsF) är en sektion under{" "}
+              <Link
+                component={RouterLink}
+                to="https://ths.kth.se/"
+                target="_blank"
+              >
+                Tekniska Högskolans Studentkår
+              </Link>{" "}
+              som ansvarar för studentlivet för alla som pluggar på KTH
+              Flemingsberg. Vill du veta mer om kåren och hur du kan bli
+              engagerad i sektionen kan du läsa mer{" "}
+              <Link component={RouterLink} to="/sektionen" target="_blank">
+                här
+              </Link>
+              .
               <br /> <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic
-              ipsum sed, voluptatum ipsa dicta repudiandae? Accusamus, doloribus
-              nihil nam fuga accusantium eligendi itaque exercitationem,
-              architecto unde blanditiis ullam laborum odio!
+              Kika gärna in vår{" "}
+              <Link
+                component={RouterLink}
+                to="https://linktr.ee/isflemingsberg"
+                target="_blank"
+              >
+                LinkTree
+              </Link>{" "}
+              och följ oss på våra sociala medier för att få de senaste
+              uppdateringarna.
             </Typography>
+
+            <Stack
+              direction="row"
+              justifyContent="left"
+              spacing={1.5}
+              ml={{ xs: "1rem" }}
+            >
+              <IconButton
+                href="https://www.facebook.com/isflemingsberg/"
+                target="_blank"
+                aria-label="Facebook"
+                disableRipple
+                sx={{
+                  backgroundColor: theme.palette.text.primary,
+                  color: theme.palette.primary.contrastText,
+                  borderRadius: 1.5,
+                }}
+              >
+                <FacebookIcon />
+              </IconButton>
+
+              <IconButton
+                href="https://instagram.com/isflemingsberg"
+                target="_blank"
+                aria-label="Instagram"
+                disableRipple
+                sx={{
+                  backgroundColor: theme.palette.text.primary,
+                  color: theme.palette.primary.contrastText,
+                  borderRadius: 1.5,
+                }}
+              >
+                <InstagramIcon />
+              </IconButton>
+
+              <IconButton
+                href="https://www.linkedin.com/company/ingsekt"
+                target="_blank"
+                aria-label="LinkedIn"
+                disableRipple
+                sx={{
+                  backgroundColor: theme.palette.text.primary,
+                  color: theme.palette.primary.contrastText,
+                  borderRadius: 1.5,
+                }}
+              >
+                <LinkedInIcon />
+              </IconButton>
+            </Stack>
           </Stack>
           <Box sx={{ width: "100%", height: { xs: 300, md: 400 } }}>
             <iframe

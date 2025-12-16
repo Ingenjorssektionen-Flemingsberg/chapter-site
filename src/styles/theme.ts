@@ -16,27 +16,26 @@ const OKRAROD = "#90302C";
 
 // DARK THEME – warm, moody, ochre-red accent
 const darkTheme = createTheme({
-  typography: { fontFamily: "'Times new roman', sans-serif" },
+  typography: { fontFamily: "'Times new roman', serif" },
   palette: {
     mode: "dark",
-    primary: { main: OKRAROD },
+
+    primary: { main: OKRAROD, contrastText: "#1A1312" },
     secondary: { main: "#D98A6A" },
 
+    // Softer “espresso” background instead of near-black
     background: {
-      default: "#120C0B",
-      paper: "#1C1110",
+      default: "#1A1312", // warm charcoal / espresso
+      paper: "#241918", // lifted surface
     },
 
-    // --------------------------
-    // Custom foreground colours
-    // --------------------------
-    onBackground: "#222222", // soft warm ivory
-    onPaper: "#F7E7E1", // slightly stronger for cards
-    // --------------------------
+    // Your custom keys (fine to keep if you’ve extended types)
+    onBackground: "#F3E6DF",
+    onPaper: "#FFF5EF",
 
     text: {
-      primary: "#FFF5EF",
-      secondary: "#E0C1B8",
+      primary: "#F9F6EE",
+      secondary: "#D9C1B8",
     },
   },
   components: {
@@ -89,12 +88,20 @@ const darkTheme = createTheme({
     MuiLink: {
       styleOverrides: {
         root: {
-          color: "inherit",
+          color: "#1E5F87",
           textDecorationColor: "inherit",
         },
       },
       defaultProps: {
         underline: "always",
+      },
+    },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          fontSize: "0.75rem",
+          opacity: 0.75,
+        },
       },
     },
   },
@@ -176,12 +183,20 @@ const lightTheme = createTheme({
     MuiLink: {
       styleOverrides: {
         root: {
-          color: "inherit",
+          color: "#1E5F87",
           textDecorationColor: "inherit",
         },
       },
       defaultProps: {
         underline: "always",
+      },
+    },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          fontSize: "0.75rem",
+          opacity: 0.75,
+        },
       },
     },
   },
