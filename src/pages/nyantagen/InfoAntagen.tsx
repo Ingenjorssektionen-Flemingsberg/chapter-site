@@ -1,14 +1,17 @@
 import { Typography } from "@mui/material";
 import InfoPageLayout from "../../components/layout/InfoPageLayout";
 import NavLink from "../../components/util/NavLink";
+import infoAntagen from "../../assets/nyantagen/info-antagen.webp";
 
 export default function InfoAntagen() {
   return (
     <InfoPageLayout
       navLabel="Nyantagen"
-      heroImage=""
-      heroTitle=""
+      heroImage={infoAntagen}
+      heroTitle="info om antagning"
+      heroSubtitle=""
       heroHeight={{ xs: "40vh", md: "60vh" }}
+      heroPosition={{ xs: "center", md: "center 250%" }}
     >
       <Typography variant="h4" mb={3}>
         Info om du blivit antagen {new Date().getFullYear()}
@@ -17,16 +20,15 @@ export default function InfoAntagen() {
         Hej!
         <br />
         <br />
-        Stort grattis till att du har blivit antagen till en av utbildningarna
-        här på KTH Flemingsberg. Mycket kommer att ske de första veckorna med
-        intro kurser, mottagningen och att träffa nya människor.
+        Stort grattis till att du har blivit antagen till en av utbildningarna här på KTH
+        Flemingsberg. Mycket kommer att ske de första veckorna med intro kurser, mottagningen och
+        att träffa nya människor.
         <br />
         <br />
-        Det <strong>obligatoriska uppropet</strong> för alla
-        högskoleutbildningar här på <strong>KTH Flemingsberg</strong> kommer att
-        informeras om snart. Alla antagna kommer att delas in i olika grupper
-        beroende på vilken utbildning du har sökt till, så glöm inte att kolla
-        vilken tid och grupp du tillhör till.
+        Det <strong>obligatoriska uppropet</strong> för alla högskoleutbildningar här på{" "}
+        <strong>KTH Flemingsberg</strong> kommer att informeras om snart. Alla antagna kommer att
+        delas in i olika grupper beroende på vilken utbildning du har sökt till, så glöm inte att
+        kolla vilken tid och grupp du tillhör till.
         <br />
         <br />
         Mer information om tider och gruppindelningar hittar du här:
@@ -42,9 +44,9 @@ export default function InfoAntagen() {
           <li>
             <NavLink
               remote
-              to="https://www.kth.se/student/studier/nypakth/tekniskt-basar-termin-2-kthcampus-vt-1.357639"
+              to="https://www.kth.se/student/studier/nypakth/antagen-till-teknik-och-ekonomi-180-hp-1.358413"
             >
-              Tekniskt basår, termin 2, 30 fup{" "}
+              Teknik och Ekonomi, 180 hp{" "}
             </NavLink>
           </li>
           <li>
@@ -72,8 +74,7 @@ export default function InfoAntagen() {
             </NavLink>
           </li>
         </ul>
-        Plats: Servicecenter, KTH Flemingsberg (entréplan). Hälsovägen 11C,
-        Huddinge.{" "}
+        Plats: Servicecenter, KTH Flemingsberg (entréplan). Hälsovägen 11C, Huddinge.{" "}
         <NavLink to="https://maps.app.goo.gl/sUKCHSNANoSyEVV56" remote>
           Se platsen på karta
         </NavLink>
@@ -84,15 +85,11 @@ export default function InfoAntagen() {
         <br />
         <br />
         <strong>
-          Om du inte kan närvara vid uppropet måste du ansöka om dispens.
-          Ansökan om dispens gör du via följande formulär senast samma dag som
-          uppropet!
+          Om du inte kan närvara vid uppropet måste du ansöka om dispens. Ansökan om dispens gör du
+          via följande formulär senast samma dag som uppropet!
         </strong>
         <br />
-        <NavLink
-          remote
-          to="https://www.kth.se/student/studier/nypakth/dispens-1.1247913"
-        >
+        <NavLink remote to="https://www.kth.se/student/studier/nypakth/dispens">
           Ansökan om dispens
         </NavLink>
       </Typography>
