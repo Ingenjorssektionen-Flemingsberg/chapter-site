@@ -7,7 +7,9 @@ import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
 
 const STORAGE_KEY = "isDark";
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
+export function ThemeProvider({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   const [isDark, setIsDark] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -17,8 +19,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
+    const prefersDark = globalThis.matchMedia(
+      "(prefers-color-scheme: dark)"
     ).matches;
 
     setIsDark(prefersDark);
@@ -42,7 +44,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       theme,
       toggleTheme,
     }),
-    [isDark, theme, toggleTheme],
+    [isDark, theme, toggleTheme]
   );
 
   // block rendering until theme resolved

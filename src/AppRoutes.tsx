@@ -29,6 +29,7 @@ import InfoAntagen from "./pages/nyantagen/InfoAntagen";
 import InfoFlemingsberg from "./pages/nyantagen/InfoFlemingsberg";
 import JoinSektionen from "./pages/nyantagen/JoinSektionen";
 import SektionenVerksamhet from "./pages/nyantagen/SektionenVerksamhet";
+import News from "./pages/News";
 
 export const routes: RouteObject[] = [
   {
@@ -37,6 +38,7 @@ export const routes: RouteObject[] = [
     children: [
       { index: true, element: <Home /> },
       { path: "/event", element: <Event /> },
+      { path: "/nyheter", element: <News /> },
       // Sektionen
       { path: "/sektionen", element: <Sektionen /> },
       { path: "/rudan", element: <Rudan /> },

@@ -6,12 +6,12 @@ import CloseIcon from "@mui/icons-material/Close";
 type NotificationContextType = {
   showNotification: (
     message: string,
-    severity?: "success" | "info" | "warning" | "error",
+    severity?: "success" | "info" | "warning" | "error"
   ) => void;
 };
 
 const NotificationContext = createContext<NotificationContextType | undefined>(
-  undefined,
+  undefined
 );
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -19,7 +19,7 @@ export const useNotification = (): NotificationContextType => {
   const context = useContext(NotificationContext);
   if (!context) {
     throw new Error(
-      "useNotification must be used within a NotificationProvider",
+      "useNotification must be used within a NotificationProvider"
     );
   }
   return context;
@@ -33,7 +33,7 @@ const NotificationContextProvider: React.FC<{ children: React.ReactNode }> = ({
   const showNotification = useCallback(
     (
       message: string,
-      severity: "success" | "info" | "warning" | "error" = "info",
+      severity: "success" | "info" | "warning" | "error" = "info"
     ) => {
       enqueueSnackbar(message, {
         variant: severity,
@@ -46,14 +46,14 @@ const NotificationContextProvider: React.FC<{ children: React.ReactNode }> = ({
         ),
       });
     },
-    [enqueueSnackbar, closeSnackbar],
+    [enqueueSnackbar, closeSnackbar]
   );
 
   const value = useMemo<NotificationContextType>(
     () => ({
       showNotification: showNotification,
     }),
-    [showNotification],
+    [showNotification]
   );
 
   return (
