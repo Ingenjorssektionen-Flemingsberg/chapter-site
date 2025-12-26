@@ -18,7 +18,8 @@ export default function Event() {
     >
       <HeroBanner
         image={event}
-        height={"50vh"}
+        height={{ xs: "40vh", md: "60vh" }}
+        position={{ xs: "center", md: "center" }}
         subtitle="Kom på våra"
         title={"Events"}
       />
