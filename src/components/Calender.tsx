@@ -3,6 +3,17 @@ import { Typography, Box, IconButton, Tooltip } from "@mui/material";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import { useCalendar } from "../contexts/CalenderContext";
 
+function startOfLocalDay(date: Date) {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+}
+
+function formatLocalDateKey(date: Date) {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+
 function getPaddedMonthGrid(date: Date) {
   const year = date.getFullYear();
   const month = date.getMonth();
@@ -10,21 +21,22 @@ function getPaddedMonthGrid(date: Date) {
   const firstOfMonth = new Date(year, month, 1);
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-  const startDay = firstOfMonth.getDay() - 1;
+  // Convert JS Sunday=0 → Monday=0
+  const mondayIndex = (firstOfMonth.getDay() + 6) % 7;
 
   const cells: (Date | null)[] = [];
 
-  // 1. Leading empty cells
-  for (let i = 0; i < startDay; i++) {
+  // Leading padding
+  for (let i = 0; i < mondayIndex; i++) {
     cells.push(null);
   }
 
-  // 2. Days of the month
+  // Month days (local midnight!)
   for (let day = 1; day <= daysInMonth; day++) {
     cells.push(new Date(year, month, day));
   }
 
-  // 3. Pad the rest to reach 35 cells
+  // Always fill 5 weeks minimum (35 cells)
   while (cells.length < 35) {
     cells.push(null);
   }
@@ -57,50 +69,41 @@ export default function Calendar() {
     [currentDate]
   );
 
-  // Group events by YYYY-MM-DD
   const eventsByDate = useMemo(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const map: Record<string, any[]> = {};
+
     for (const ev of events) {
-      const startRaw = ev.start?.date || ev.start?.dateTime;
-      const endRaw = ev.end?.date || ev.end?.dateTime || startRaw;
+      const startRaw = ev.start?.dateTime || ev.start?.date;
+      const endRaw = ev.end?.dateTime || ev.end?.date;
       if (!startRaw) continue;
 
       const isAllDay = !!ev.start?.date && !ev.start?.dateTime;
 
-      let current = new Date(startRaw);
-      current.setDate(current.getDate() - 1);
-      let last = new Date(endRaw);
-      last.setDate(last.getDate() - 1);
+      let current = startOfLocalDay(new Date(startRaw));
+      let last = startOfLocalDay(new Date(endRaw || startRaw));
 
+      // Google all-day events use exclusive end
       if (isAllDay) {
-        // For all-day events, Google uses an *exclusive* end.date
-        // e.g. start=2025-01-10, end=2025-01-12 means 10th–11th
-        // So we include up to the day before `end`
         last.setDate(last.getDate() - 1);
       }
 
-      // Safeguard: if somehow last < current, clamp
-      if (last < current) {
-        last = new Date(current);
-      }
-
       const startTime = getHoursMinutes(startRaw);
-      let endTime = "";
-      if (startTime !== "All day") {
-        endTime = getHoursMinutes(endRaw);
-      }
+      const endTime = startTime !== "All day" ? getHoursMinutes(endRaw) : "";
 
-      // Walk from current → last, inclusive
       while (current <= last) {
-        const key = current.toISOString().slice(0, 10); // YYYY-MM-DD
+        const key = formatLocalDateKey(current);
 
         if (!map[key]) map[key] = [];
         map[key].push({ startTime, endTime, ev });
 
-        current.setDate(current.getDate() + 1);
+        current = new Date(
+          current.getFullYear(),
+          current.getMonth(),
+          current.getDate() + 1
+        );
       }
     }
+
     return map;
   }, [events]);
 
@@ -187,8 +190,8 @@ export default function Calendar() {
         }}
       >
         {monthGrid.map((date, index) => {
-          const key = date ? date.toISOString().slice(0, 10) : `empty-${index}`;
-          const todayKey = new Date().toISOString().slice(0, 10);
+          const key = date ? formatLocalDateKey(date) : `empty-${index}`;
+          const todayKey = formatLocalDateKey(new Date());
           const dayEvents = date && eventsByDate[key] ? eventsByDate[key] : [];
 
           let opacity = 0.25;
@@ -280,7 +283,7 @@ export default function Calendar() {
                         textAlign: "right",
                       }}
                     >
-                      {date.getDate()}
+                      {key.slice(8, 10).replace(/^0/, "")}
                     </Typography>
 
                     {dayEvents.map(({ startTime, ev }) => (

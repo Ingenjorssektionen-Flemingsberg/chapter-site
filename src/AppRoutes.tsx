@@ -32,8 +32,7 @@ import SektionenVerksamhet from "./pages/nyantagen/SektionenVerksamhet";
 import News from "./pages/News";
 import AdminNews from "./pages/AdminNews";
 import Contact from "./pages/Contact";
-
-const isAdmin = true; // TODO: replace with real auth logic
+import { RequireAdmin } from "./components/util/RequireAdmin";
 
 export const routes: RouteObject[] = [
   {
@@ -42,7 +41,14 @@ export const routes: RouteObject[] = [
     children: [
       { index: true, element: <Home /> },
 
-      ...(isAdmin ? [{ path: "/admin", element: <AdminNews /> }] : []),
+      {
+        path: "/post",
+        element: (
+          <RequireAdmin>
+            <AdminNews />
+          </RequireAdmin>
+        ),
+      },
 
       { path: "/event", element: <Event /> },
       { path: "/nyheter", element: <News /> },

@@ -26,7 +26,7 @@ export default function News() {
       <HeroBanner
         image={newsBanner}
         height={{ xs: "40vh", md: "60vh" }}
-        subtitle="Kolla in senaste"
+        subtitle="Kolla in våra senaste"
         title="Nyheter"
       />
 

@@ -27,6 +27,8 @@ import NewsPost from "../components/news/NewsPost";
 import NewsEditor from "../components/news/NewsEditor";
 import { useInfiniteScroll } from "../components/news/useInfiniteScroll";
 import { useNews } from "../contexts/NewsContext";
+import Logout from "@mui/icons-material/Logout";
+import { useAuth } from "../contexts/AuthContext";
 
 function makeEmptyPost(): NewsPostType {
   const created = new Date().toISOString();
@@ -74,6 +76,8 @@ export default function AdminNews() {
   const [deleteTarget, setDeleteTarget] = useState<NewsPostType | null>(null);
 
   const [create, setCreate] = useState<boolean>(false);
+
+  const { logout } = useAuth();
 
   function openCreate() {
     const p = makeEmptyPost();
@@ -126,16 +130,32 @@ export default function AdminNews() {
 
   return (
     <Container disableGutters sx={{ py: 4, mt: 15 }}>
-      <Box sx={{ px: { xs: 2, sm: 3 }, mb: 3 }}>
-        <Typography
-          variant="h4"
-          sx={{ fontWeight: 800, letterSpacing: "-0.02em" }}
-        >
-          Admin - Nyheter
-        </Typography>
-        <Typography color="text.secondary">
-          Skapa, redigera och publicera nyheter. Förhandsgranska i realtid.
-        </Typography>
+      <Box
+        sx={{
+          px: { xs: 2, sm: 3 },
+          mb: 3,
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <Box>
+          <Typography
+            variant="h4"
+            sx={{ fontWeight: 800, letterSpacing: "-0.02em" }}
+          >
+            Admin - Nyheter
+          </Typography>
+          <Typography color="text.secondary">
+            Skapa, redigera och publicera nyheter. Förhandsgranska i realtid.
+          </Typography>
+        </Box>
+
+        <Box>
+          <IconButton onClick={logout}>
+            <Logout></Logout>
+          </IconButton>
+        </Box>
       </Box>
 
       <Box

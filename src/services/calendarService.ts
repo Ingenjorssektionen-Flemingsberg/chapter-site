@@ -8,14 +8,10 @@ const calenderClient = axios.create({
 });
 
 export const getCalendarEvents = async (from: string, to: string) => {
-  const env = import.meta.env;
-
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const response = await calenderClient.get<any>(
-    `${encodeURIComponent(env["VITE_GOOGLE_CALENDAR_ID"])}/events?key=${
-      import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY
-    }&timeMin=${from}&timeMax=${to}&singleEvents=true&orderBy=startTime`,
+    `${import.meta.env.VITE_POSTS_URL}/calendar?from=${from}&to=${to}`
   );
 
-  return response?.data.items || [];
+  return response?.data;
 };

@@ -12,17 +12,17 @@ chapter:
         members: [Emma Johansson]
       - name: Vice Sektionsordförande
         contact: vordf@isflemingsberg.se
-        members: [Max Hillenborg]
+        members: [Riff Bravo]
       - name: Ledamöter
-        members: [Emelie Olsson, Riff Bravo, Johan Gripenhall]
+        members: [Engla Lundin, Robin Björn, Matilda Liljegren]
       - name: JML-ansvarig
         contact: jml@isflemingsberg.se
-        members: [Noah Jönsson]
+        members: [Tuva Svanström]
       - name: Studienämndens Ordförande
         contact: sno@isflemingsberg.se
-        members: [Adam Younes]
+        members: [Joel Österlund]
       - name: Styrelsesekreterare
-        members: [Axel Åström]
+        members: [Patryk Kondratowicz]
 
   - name: Mottagningsgruppen
     contact: mogen@isflemingsberg.se
@@ -30,19 +30,18 @@ chapter:
       - Gudfadder
     roles:
       - name: Gudfadder
-        members: [William Ramberg]
+        members: [Axel Åström]
       - name: Vice Gudfadder
         members:
           [
-            Engla Lundin,
-            Tuva Svanström,
-            Patryk Kondratowicz,
-            Emelie Olsson,
-            Aida Lagumdzija,
+            Anton Ljungkvist,
+            Carl Fröjdendahl,
+            Daniel Palitz,
+            Jonatan Viel Lamare,
             Þráinn Þórisson,
           ]
       - name: Mottagningskassör
-        members: [Riff Bravo]
+        members: [Simon Ulin]
 
   - name: Talsmanspresidiet
     contact: talman@isflemingsberg.se
@@ -59,7 +58,7 @@ chapter:
 
   - name: Revisorer
     roles:
-      - members: [Linus Michelin, Moa Eklund]
+      - members: [William Ramberg]
 
   - name: Kårfullmäktige
     roles:
@@ -74,11 +73,11 @@ chapter:
       - Qlubbmästare
     roles:
       - name: Qlubbmästare
-        members: [Leo Au]
+        members: ["-"]
       - name: Vice Qlubbmästare
-        members: [Alvin Idh]
+        members: [Erik Moreno]
       - name: Vinstmästare
-        members: [Pramit Kuar]
+        members: ["-"]
 
   - name: Företagsgruppen
     contact: fg@isflemingsberg.se
@@ -86,9 +85,9 @@ chapter:
       - Företagsgruppens Ordförande
     roles:
       - name: Företagsgruppens Ordförande
-        members: [Melissa Yasar]
-      - name: Företagsgruppens Vice Ordförande
         members: [Linus Hasselkvist]
+      - name: Företagsgruppens Vice Ordförande
+        members: [Nina]
 
   - name: Valberedningen
     contact: valberedning@isflemingsberg.se
@@ -97,28 +96,28 @@ chapter:
     roles:
       - name: Valberedningens Ordförande
         members: [Johan Gripenhall]
-      - name: Valberedningens Vice Ordförande
-        members: [Aron Alexandersson]
+      # - name: Valberedningens Vice Ordförande
+      # members: []
 
   - name: Idrottsgruppen
     contact: igor@isflemingsberg.se
     roles:
       - name: Idrottsgruppens Ordförande
-        members: [Lova Thorén]
+        members: [Sardor Jurayev]
 
   - name: Infogruppen
     contact: info@isflemingsberg.se
     roles:
       - name: Infogruppens Ordförande
-        members: [Lova Thorén]
+        members: [Engla Lundin]
 
   - name: Spruppen
     contact: spruppen@isflemingsberg.se
     roles:
       - name: SPRUPPÖverste
-        members: [Said Burhan]
-      - name: SPRUPPÖversteLöjtnant
         members: [Daniel Palitz]
+      - name: SPRUPPÖversteLöjtnant
+        members: [Said Burhan]
 
   - name: Slurpenredaktionen
     roles:
@@ -130,10 +129,10 @@ chapter:
     roles:
       - name: Utbytesnämndens Ordförande
         contact: adam@isflemingsberg.se
-        members: [Adam Younes]
+        members: [Elias Mailosson]
 
   - name: Lokalnämnden
     contact: lokal@isflemingsberg.se
     roles:
       - name: Lokalnämndens Ordförande
-        members: [Oliver Yvling-Lind]
+        members: [Elias Mailosson]
