@@ -35,22 +35,12 @@ const NavItemButton: React.FC<NavItemButtonProps> = ({ item }) => {
     setOpen(false);
   };
 
-  const handleMouseEnter = () => {
-    if (!hasSubLinks) return;
-    setOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    if (!hasSubLinks) return;
-    setOpen(false);
-  };
-
   return (
     <Box
       position="relative"
       display="inline-block"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={() => hasSubLinks && setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
       sx={{ margin: "auto" }}
     >
       <Button
@@ -92,53 +82,46 @@ const NavItemButton: React.FC<NavItemButtonProps> = ({ item }) => {
             zIndex: 1300,
             borderRadius: 0,
 
-            // 🔽 dropdown animation
-            transformOrigin: "top",
-            transform: open ? "scaleY(1)" : "scaleY(0)",
-            transition: "transform 125ms ease-out",
-            overflow: "hidden",
+            opacity: open ? 1 : 0,
+            transform: open ? "translateY(0)" : "translateY(-6px)",
+            visibility: open ? "visible" : "hidden",
             pointerEvents: open ? "auto" : "none",
+
+            transition:
+              "opacity 150ms ease-out, transform 150ms ease-out, visibility 150ms",
           }}
         >
-          <Box
-            sx={{
-              opacity: open ? 1 : 0,
-              transition: "opacity 150ms ease-out",
-              transitionDelay: open ? "125ms" : "0ms", // text appears after dropdown starts
-            }}
-          >
-            <List dense sx={{ py: 1 }}>
-              {item.subLinks!.map((sub) => (
-                <ListItemButton
-                  key={sub.path}
-                  onClick={() => handleSubClick(sub.path)}
-                  sx={{
-                    py: 0.1,
-                    "&:hover": {
-                      backgroundColor: "transparent",
-                      "& .MuiListItemText-primary": {
-                        textDecoration: "underline",
-                        textShadow: "0 0 1px white",
-                      },
+          <List dense sx={{ py: 1 }}>
+            {item.subLinks!.map((sub) => (
+              <ListItemButton
+                key={sub.path}
+                onClick={() => handleSubClick(sub.path)}
+                sx={{
+                  py: 0.1,
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    "& .MuiListItemText-primary": {
+                      textDecoration: "underline",
+                      textShadow: "0 0 1px white",
+                    },
+                  },
+                }}
+              >
+                <ListItemText
+                  primary={sub.label}
+                  slotProps={{
+                    primary: {
+                      fontFamily: "'Open Sans', sans-serif",
+                      fontSize: "0.8em",
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase",
+                      color: "onBackground",
                     },
                   }}
-                >
-                  <ListItemText
-                    primary={sub.label}
-                    slotProps={{
-                      primary: {
-                        fontFamily: "'Open Sans', sans-serif",
-                        fontSize: "0.8em",
-                        letterSpacing: "0.1em",
-                        textTransform: "uppercase",
-                        color: "onBackground",
-                      },
-                    }}
-                  />
-                </ListItemButton>
-              ))}
-            </List>
-          </Box>
+                />
+              </ListItemButton>
+            ))}
+          </List>
         </Paper>
       )}
     </Box>

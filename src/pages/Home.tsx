@@ -36,7 +36,7 @@ export default function Home() {
       <Box
         sx={{
           py: { xs: 6, md: 10 },
-          px: { xs: 2, sm: 4, md: 8 },
+          px: { xs: 0, sm: 0, md: 8 },
           textAlign: "center",
           backgroundColor: "background.default",
         }}

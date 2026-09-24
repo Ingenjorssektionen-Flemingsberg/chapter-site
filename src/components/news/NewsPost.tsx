@@ -15,8 +15,8 @@ export default function NewsPost({ post }: Readonly<Props>) {
       component="article"
       sx={{
         width: "100%",
-        maxWidth: "860px",
-        minWidth: "860px",
+        maxWidth: { md: "860px", sm: "100%" },
+        minWidth: { md: "860px", sm: "0px" },
         mb: 4,
         borderRadius: 3,
         border: "1px solid",
