@@ -75,6 +75,12 @@ export default function NewsPost({ post }: Readonly<Props>) {
                     key={key}
                     variant="body1"
                     sx={{
+                      fontSize:
+                        block.text_size === "small"
+                          ? "0.875rem"
+                          : block.text_size === "large"
+                            ? "1.25rem"
+                            : undefined,
                       whiteSpace: "pre-line",
                       lineHeight: 1.8,
                       mb: 1.5,

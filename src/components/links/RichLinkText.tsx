@@ -85,6 +85,70 @@ function renderTextWithRawUrls(
   return out;
 }
 
+/** Render simple markdown emphasis inside a text segment. */
+function renderInlineMarkdown(
+  text: string,
+  keyPrefix: string,
+  opts?: RichLinkOptions,
+): React.ReactNode[] {
+  const emphasisRegex = /(\*\*.+?\*\*|\*[^*]+\*)/g;
+  const out: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let matchIndex = 0;
+
+  for (const match of text.matchAll(emphasisRegex)) {
+    const full = match[0];
+    const index = match.index ?? 0;
+
+    if (index > lastIndex) {
+      out.push(
+        ...renderTextWithRawUrls(
+          text.slice(lastIndex, index),
+          `${keyPrefix}-plain-${matchIndex}`,
+          opts,
+        ),
+      );
+    }
+
+    if (full.startsWith("**")) {
+      out.push(
+        <strong key={`${keyPrefix}-bold-${matchIndex}`}>
+          {renderInlineMarkdown(
+            full.slice(2, -2),
+            `${keyPrefix}-bold-content-${matchIndex}`,
+            opts,
+          )}
+        </strong>,
+      );
+    } else {
+      out.push(
+        <em key={`${keyPrefix}-italic-${matchIndex}`}>
+          {renderInlineMarkdown(
+            full.slice(1, -1),
+            `${keyPrefix}-italic-content-${matchIndex}`,
+            opts,
+          )}
+        </em>,
+      );
+    }
+
+    lastIndex = index + full.length;
+    matchIndex++;
+  }
+
+  if (lastIndex < text.length) {
+    out.push(
+      ...renderTextWithRawUrls(
+        text.slice(lastIndex),
+        `${keyPrefix}-plain-${matchIndex}`,
+        opts,
+      ),
+    );
+  }
+
+  return out;
+}
+
 /**
  * Main: renders markdown links first, then raw URLs.
  */
@@ -125,8 +189,8 @@ export function renderTextWithLinks(
       return;
     }
 
-    // Plain text: now linkify raw URLs inside it
-    nodes.push(...renderTextWithRawUrls(tok.value, keyPrefix, opts));
+    // Plain text: render emphasis and linkify raw URLs inside it.
+    nodes.push(...renderInlineMarkdown(tok.value, keyPrefix, opts));
   });
 
   return <>{nodes}</>;

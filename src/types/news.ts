@@ -13,6 +13,7 @@ export type PostBlock = {
   type: "paragraph" | "image";
 
   text?: string | null;
+  text_size?: "small" | "normal" | "large";
   image_url?: string | null;
   caption?: string | null;
 
