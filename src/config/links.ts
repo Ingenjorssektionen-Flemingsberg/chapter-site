@@ -123,7 +123,7 @@ export const LINKS = {
       remote: true,
     },
     idrottDiscord: {
-      href: "https://discord.gg/2EJ9YZp9Yp",
+      href: "https://discord.gg/5nbGCdsTGs",
       remote: true,
     },
   },
