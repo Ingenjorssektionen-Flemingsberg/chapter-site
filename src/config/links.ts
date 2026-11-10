@@ -205,13 +205,17 @@ export const LINKS = {
       remote: true,
     },
     // Länk till dokument med alla våra varumärken och logotyper
-    varumarkenOchLogotyper: {
-      href: "https://drive.google.com/file/d/1-FPaCAIfSOJH2OBfAiyh4ZLt6o20Dy8V/view?usp=sharing",
+    varumarkesreglemente: {
+      href: "https://drive.google.com/file/d/1EoBlc6Rqyv4vYmYlQzzfDkEbEtV0yWxc/view?usp=drive_link",
       remote: true,
     },
     // Länk till sektionens reglemente
     reglemente: {
       href: "https://drive.google.com/open?id=1tQb1PrAbHCoUohqXTYzpSwjNS0pfX-DW&usp=drive_copy",
+      remote: true,
+    },
+    ekonomireglemente: {
+      href: "https://drive.google.com/file/d/1nOo41e87N9u1l9h0rMXH7o4YAfNN2lAL/view?usp=drive_link",
       remote: true,
     },
 

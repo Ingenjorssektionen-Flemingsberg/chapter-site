@@ -24,8 +24,11 @@ export default function Styrdokument() {
         <SquareButton link={LINKS.docs.stadgar} fontSize="0.9em">
           stadgar
         </SquareButton>
-        <SquareButton link={LINKS.docs.varumarkenOchLogotyper} fontSize="0.9em">
-          varumärken och logotyper
+        <SquareButton link={LINKS.docs.varumarkesreglemente} fontSize="0.9em">
+          varumärkesreglemente
+        </SquareButton>
+        <SquareButton link={LINKS.docs.ekonomireglemente} fontSize="0.9em">
+          ekonomireglemente
         </SquareButton>
         <SquareButton link={LINKS.docs.reglemente} fontSize="0.9em">
           reglemente
