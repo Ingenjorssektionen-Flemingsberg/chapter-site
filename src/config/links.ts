@@ -211,7 +211,7 @@ export const LINKS = {
     },
     // Länk till sektionens reglemente
     reglemente: {
-      href: "https://drive.google.com/open?id=1tQb1PrAbHCoUohqXTYzpSwjNS0pfX-DW&usp=drive_copy",
+      href: "https://drive.google.com/file/d/1KUSIKSG4tmy34pUfrFpYMaH06bIBmKkT/view?usp=drive_link",
       remote: true,
     },
     ekonomireglemente: {
