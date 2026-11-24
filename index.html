@@ -34,10 +34,7 @@
       (function () {
         try {
           var stored = localStorage.getItem("isDark");
-          var prefersDark = window.matchMedia(
-            "(prefers-color-scheme: dark)"
-          ).matches;
-          var isDark = stored !== null ? stored === "true" : prefersDark;
+          var isDark = stored !== null ? stored === "true" : false;
           document.documentElement.dataset.theme = isDark ? "dark" : "light";
         } catch (e) {}
       })();

@@ -19,11 +19,8 @@ export function ThemeProvider({
       return;
     }
 
-    const prefersDark = globalThis.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-
-    setIsDark(prefersDark);
+    // Default to light mode as preferred chapter theme
+    setIsDark(false);
   }, []);
 
   const toggleTheme = useCallback(() => {
@@ -44,7 +41,7 @@ export function ThemeProvider({
       theme,
       toggleTheme,
     }),
-    [isDark, theme, toggleTheme]
+    [isDark, theme, toggleTheme],
   );
 
   // block rendering until theme resolved

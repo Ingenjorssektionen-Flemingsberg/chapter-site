@@ -72,7 +72,9 @@ export default function InfoPageLayout({
           />
         )}
 
-        <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>{children}</Box>
+        <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
+          {children}
+        </Box>
       </Box>
     </Container>
   );

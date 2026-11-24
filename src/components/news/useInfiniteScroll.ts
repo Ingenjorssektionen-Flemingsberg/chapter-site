@@ -14,7 +14,7 @@ export function useInfiniteScroll(onIntersect: () => void, enabled: boolean) {
       },
       {
         rootMargin: "200px",
-      }
+      },
     );
 
     observer.observe(ref.current);
